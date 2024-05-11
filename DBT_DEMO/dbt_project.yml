@@ -31,7 +31,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   DBT_DEMO:
+    # ---
     # Config indicated by + and applies to all files under models/example/
+    # ---
+    # Set the default output schemas
+    +schema: demo_cdm_dbt_output
+    staging:
+      +schema: demo_cdm_dbt_staging
+    analytics:
+      +schema: demo_cdm_dbt_analytics
+    # Set the default query schema
     pre-hook: "set search_path to demo_cdm, public;"
     example:
       +materialized: view

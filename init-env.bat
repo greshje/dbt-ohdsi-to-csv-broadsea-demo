@@ -20,6 +20,8 @@ dbt init DBT_DEMO
 
 cd DBT_DEMO
 dbt debug
+dbt run
+
 
 
 
